@@ -355,7 +355,20 @@ export const Desplegable = styled.div`
         left: -100%;
     }
 
+    @media screen and (min-width: 320px) {
+        width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #1A1B1F;
+    height: 60vh;
+    position: absolute;
+    top: 59px;
     
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1000000;
+    }
     @media screen and (min-width: 993px) {
         display:none;
     }

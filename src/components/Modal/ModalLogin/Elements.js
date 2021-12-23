@@ -26,6 +26,24 @@ export const Wrap2 = styled.div`
     background: #1A1B1F;
     padding: 30px;
     border-radius: 0px 0px 30px 30px;
+
+    @media screen and (min-width: 320px) {
+        width: 100%;
+        
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 100%;
+    }
+
+
+    @media screen and (min-width: 993px) {
+        width: 100%;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 100%;
+    }
 `
 
 export const Texto = styled.div`
@@ -41,7 +59,7 @@ export const Texto = styled.div`
 `
 
 export const ButtonF = styled.div`
-    width: 350px;
+    
     height: 50px;
     display: flex;
     align-items: center;
@@ -53,6 +71,23 @@ export const ButtonF = styled.div`
     padding: 15px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
     box-sizing: border-box;
+    @media screen and (min-width: 320px) {
+        width: 100%;
+        
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 350px;
+    }
+
+
+    @media screen and (min-width: 993px) {
+        width: 350px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 350px;
+    }
 `
 
 export const ButtonG = styled.div`
@@ -67,6 +102,23 @@ export const ButtonG = styled.div`
     background: #008ad3;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.5);
     box-sizing: border-box;
+    @media screen and (min-width: 320px) {
+        width: 100%;
+        
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 350px;
+    }
+
+
+    @media screen and (min-width: 993px) {
+        width: 350px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 350px;
+    }
 `
 
 export const Text = styled.div`

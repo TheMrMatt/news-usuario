@@ -21,7 +21,7 @@ const Navbar = () => {
     const { user, auth, logout, isLoggedIn, loginFacebook } = useContext(UserContext)
     const { startLoading } = useContext(PortadaContext);
     let history = useNavigate();
-    const handleClick = () => setClick(!click);
+    const handleClick = () => { console.log(click); setClick(!click); }
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
         if (loggedInUser) {
@@ -48,7 +48,7 @@ const Navbar = () => {
         <>
             <NavbarContainer>
                 <Nav>
-                    <HamburgerMenu onClick={handleClick} />
+                    <HamburgerMenu onClick={() => handleClick()} />
                     <Logo to='/' exact='true' onClick={() => { startLoading() }}>Contexto</Logo>
                     <Categorias className='nav-menu'>
                         <CategoriaLink to='/espectaculos' exact='true' onClick={() => { startLoading() }}>Espectaculo</CategoriaLink>
@@ -99,7 +99,7 @@ const Navbar = () => {
 
                 </Nav>
 
-                <Desplegable className={isOpen2 ? 'act' : 'desact'}>
+                <Desplegable className={click ? 'act' : 'desact'}>
                     <Categorias className='desple'>
                         <CategoriaLink to='/espectaculos' exact='true' className='desple' onClick={handleClick}>Espectaculo</CategoriaLink>
                         <CategoriaLink to='/deportes' exact='true' className='desple' onClick={handleClick}>Deportes</CategoriaLink>

@@ -39,6 +39,23 @@ export const ModalContainer = styled.div`
         }
     }
 
+    @media screen and (min-width: 320px) {
+        width: 90%;
+        
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 60vw;
+    }
+
+
+    @media screen and (min-width: 993px) {
+        width: 600px;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 600px;
+    }
 
 `
 
@@ -99,6 +116,6 @@ export const Button = styled.button`
     align-items: center;
     text-align: center;
     letter-spacing: 0.1em;
-
+    background-color:transparent;
     color: #000000;
 `

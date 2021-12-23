@@ -14,7 +14,7 @@ export const Overlay = styled.div`
 
 export const ModalContainer = styled.div`
     height: 96vh;
-    width:20vw;
+    
     right: 0%;
     display: flex;
     align-items: center;
@@ -33,21 +33,23 @@ export const ModalContainer = styled.div`
 
     @media screen and (min-width: 320px) {
         transform: translateX(0%);
-        
+        width:100vw;
     }
 
     @media screen and (min-width: 768px) {
         transform: translateX(0%);
-        
+        width:60vw;
     }
 
 
     @media screen and (min-width: 993px) {
         transform: translateX(0%);
+        width:40vw;
     }
 
     @media screen and (min-width: 1200px) {
         transform: translateX(0%);
+        width:30vw;
     }
 
 `

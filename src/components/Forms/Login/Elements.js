@@ -77,32 +77,36 @@ export const Formulario = styled(Form)`
 
 export const InputsWrapper = styled.div`
    
-    height: 50px;
+    
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-    margin: 30px 0px 30px 0px;
+    
+    
+    
 
     @media screen and (min-width: 320px) {
+        padding: 30px 0px 30px 30px;
         width: 80%;
-        
+        flex-direction: column;
+        justify-content: center;
     }
 
     @media screen and (min-width: 768px) {
         width: 515px;
-        
+        flex-direction: row;    
+        justify-content: space-between;
+        margin: 30px 0px 30px 0px;
     }
 
 
     @media screen and (min-width: 993px) {
         width: 515px;
-
+        flex-direction: row;
     }
 
     @media screen and (min-width: 1200px) {
         width: 515px;
-
+        flex-direction: row;
     }
 `
 
