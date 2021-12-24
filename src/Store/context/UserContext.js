@@ -116,7 +116,7 @@ export const UserProvider = ({ children }) => {
     async function loginFacebook(redirect) {
 
         try {
-            const res = await axios.get('https://news-server-context.herokuapp.com/auth/facebook')
+            const res = await axios.get('/auth/facebook')
             console.log(res)
 
         } catch (err) {
