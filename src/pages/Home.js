@@ -29,19 +29,20 @@ const Home = () => {
     console.log('notas', notas);
 
     if (loadingP === true) {
-        console.log('en el log', portadas)
+
+        return <LoadingScreen />
+    } if (loading === true) {
+
         return <LoadingScreen />
     } return (
         <>
-            {console.log(loadingP, loading)
 
-            }
 
             <Portada key={home.portada} portadaPrincipal={home.principal} portada={home.secundario} masRecientes={masRecientes} />
-            <Seccion1 categoria={dep2[0].categoria} notas={dep2} />
-            <Seccion2 categoria={esp2[0].categoria} notas={esp2} />
-            <Seccion1 categoria={pol2[0].categoria} notas={pol2} />
-            <Seccion2 categoria={tec2[0].categoria} notas={tec2} />
+            <Seccion1 categoria={'Deportes'} notas={dep2} />
+            <Seccion2 categoria={'Espectaculos'} notas={esp2} />
+            <Seccion1 categoria={'Policiales'} notas={pol2} />
+            <Seccion2 categoria={'Tecnologia'} notas={tec2} />
         </>
     )
 }

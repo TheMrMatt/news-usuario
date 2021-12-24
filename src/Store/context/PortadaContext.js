@@ -22,7 +22,7 @@ export const PortadaProvider = ({ children }) => {
 
     async function getPortadas() {
         try {
-            const res = await axios.get('https://news-server-context.herokuapp.com/portadas')
+            const res = await axios.get('/portadas')
 
             dispatch({
                 type: 'GET_PORTADAS',
@@ -35,7 +35,7 @@ export const PortadaProvider = ({ children }) => {
 
     async function getPortada(categoria) {
         try {
-            const res = await axios.get(`https://news-server-context.herokuapp.com/portadas/${categoria}`)
+            const res = await axios.get(`/portadas/${categoria}`)
 
             dispatch({
                 type: 'GET_PORTADA',
@@ -76,7 +76,7 @@ export const PortadaProvider = ({ children }) => {
             secundario
         }
         try {
-            const res = await axios.put(`https://news-server-context.herokuapp.com/dashboard/portadas/${id}`, { ...newP }, config);
+            const res = await axios.put(`/dashboard/portadas/${id}`, { ...newP }, config);
 
             dispatch({
                 type: 'UPDATE_PORTADA',

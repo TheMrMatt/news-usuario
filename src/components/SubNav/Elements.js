@@ -3,7 +3,7 @@ import { Link as LinkR } from 'react-router-dom';
 
 export const Container = styled.div`
 width: 100%;
-height: 40px;
+
 display: flex;
 
 align-items: center;
@@ -26,7 +26,7 @@ background: #1A1B1F;
 
 @media screen and (min-width: 993px) {
     width: 100%;
-    height: 40px;
+    
     
     display: flex;
     justify-content: space-around;
@@ -36,7 +36,7 @@ background: #1A1B1F;
 
 @media screen and (min-width: 1200px) {
     width: 100%;
-    height: 40px;
+    
     
     display: flex;
     justify-content: space-around;
@@ -54,30 +54,30 @@ align-items: center;
 
 @media screen and (min-width: 320px) {
     width: 435px;
-        height: 18px;
+        
     
 }
 
 
 @media screen and (min-width: 768px) {
     width: 435px;
-    height: 18px;
     
 }
 
 
 @media screen and (min-width: 993px) {
     width: 435px;
-    height: 18px;
+    
 }
 
 @media screen and (min-width: 1200px) {
     width: 435px;
-    height: 18px;
+    
 }
 `
 
 export const SubCat = styled(LinkR)`
+height: 40px;
 cursor: pointer;
 font-family: Montserrat;
 font-style: normal;

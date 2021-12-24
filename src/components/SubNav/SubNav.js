@@ -17,6 +17,7 @@ const SubNav = ({ subcats, cat }) => {
             </Container>
         </>
     )
+
 }
 
 export default SubNav

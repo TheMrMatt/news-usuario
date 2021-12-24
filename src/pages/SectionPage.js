@@ -21,15 +21,15 @@ const SectionPage = ({ cat, subCats, content }) => {
     const { notas, populateNotas, loading, startLoading } = useContext(NotasContext)
     const { portadas, getPortada, portada, loadingP, getPortadas } = useContext(PortadaContext)
 
-    const categoria = portada.principal;
+    const categoria = portada.subCategorias;
 
 
     const nota = notas.filter(notas => notas.categoria === cat)
     const port = portadas.filter(po => po.portada === cat.toUpperCase())
     let portada2 = notas.filter(not => not.categoria.toUpperCase() === cat.toUpperCase())
     portada2 = portada2.slice(-3);
-    console.log('portada', portada2);
-    console.log('CATEGORIA', cat);
+
+
     if (loading === true) {
         return <LoadingScreen />
     } else if (loadingP == true) {
@@ -38,11 +38,16 @@ const SectionPage = ({ cat, subCats, content }) => {
     return (
         <>
             {
-                portada.subCategorias[0] ? <SubNav cat={cat} subcats={portada.subCategorias} /> : <></>
+                portada && (
+                    <>
+                        <SubNav cat={cat} subcats={portada.subCategorias} />
+                        <HeroSeccion seccion={cat} />
+                        <SeccionPortada portadaPrincipal={portada.principal} portada={portada.secundario} notas={portada2} />
+                        <Content content={nota} />
+                    </>
+                )
             }
-            <HeroSeccion seccion={cat} />
-            <SeccionPortada portadaPrincipal={portada.principal} portada={portada.secundario} notas={portada2} />
-            <Content content={nota} />
+
         </>
     )
 }
