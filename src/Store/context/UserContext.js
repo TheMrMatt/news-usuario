@@ -44,7 +44,7 @@ export const UserProvider = ({ children }) => {
 
     async function getUsers() {
         try {
-            const res = await axios.get('register');
+            const res = await axios.get('https://news-server-context.herokuapp.com/register');
 
 
             dispatch({
@@ -59,7 +59,7 @@ export const UserProvider = ({ children }) => {
     async function getUser(userId) {
         // trae el usuario para cargar informacion necesaria de otro usuario
         try {
-            const res = await axios.get(`/user/${userId}`);
+            const res = await axios.get(`https://news-server-context.herokuapp.com/user/${userId}`);
 
 
 
@@ -87,7 +87,7 @@ export const UserProvider = ({ children }) => {
         }
 
         try {
-            const res = await axios.post('/register', user, config)
+            const res = await axios.post('https://news-server-context.herokuapp.com/register', user, config)
 
             dispatch({
                 type: 'REGISTER',
@@ -101,7 +101,7 @@ export const UserProvider = ({ children }) => {
     async function login(user) {
 
         try {
-            const res = await axios.post('/login', user)
+            const res = await axios.post('https://news-server-context.herokuapp.com/login', user)
             console.log(res)
             dispatch({
                 type: 'LOGIN',
@@ -116,7 +116,7 @@ export const UserProvider = ({ children }) => {
     async function loginFacebook(redirect) {
 
         try {
-            const res = await axios.get('/auth/facebook')
+            const res = await axios.get('https://news-server-context.herokuapp.com/auth/facebook')
             console.log(res)
 
         } catch (err) {
@@ -127,7 +127,7 @@ export const UserProvider = ({ children }) => {
     async function logout() {
 
         try {
-            const res = await axios.get('/logout')
+            const res = await axios.get('https://news-server-context.herokuapp.com/logout')
 
             dispatch(
                 {
