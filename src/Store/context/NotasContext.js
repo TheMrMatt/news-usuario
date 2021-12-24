@@ -35,13 +35,14 @@ export const NotasProvider = ({ children }) => {
 
         try {
             const res = await axios.get(`https://news-server-context.herokuapp.com/nota/${id}`);
-            console.log(res)
+
 
             dispatch({
                 type: 'GET_NOTA',
                 payload: res.data.data
             });
         } catch (err) {
+            console.log(err)
             toast.error(err.response.data.error, { position: toast.POSITION.TOP_RIGHT, autoClose: false })
             dispatch({
                 type: 'NOTA_ERROR',
