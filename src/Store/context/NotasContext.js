@@ -25,6 +25,8 @@ const initialState = {
     ]
 
 }
+
+const url = 'https://news-server-context.herokuapp.com';
 //va a fallar los mas recientes seguramente, no hay acciones ni funciones que lo llenen
 export const NotasContext = createContext(initialState)
 
@@ -41,7 +43,7 @@ export const NotasProvider = ({ children }) => {
                 user: user,
                 credentials: 'include'
             }
-            const res = await axios.get(`/nota/${id}`, config);
+            const res = await axios.get(`${url}/nota/${id}`, config);
             console.log(res)
 
             dispatch({
@@ -65,7 +67,7 @@ export const NotasProvider = ({ children }) => {
         //usar esta accion para llamar a todas las notas, filtrar desde el front 
 
         try {
-            const res = await axios.get('/nota/all')
+            const res = await axios.get(`${url}/nota/all`)
 
             dispatch({
                 type: 'GET_NOTAS',
@@ -85,7 +87,7 @@ export const NotasProvider = ({ children }) => {
 
 
         try {
-            await axios.delete(`/nota/${id}`)
+            await axios.delete(`${url}/nota/${id}`)
             dispatch({
                 type: 'DELETE_NOTA',
                 payload: id
@@ -110,7 +112,7 @@ export const NotasProvider = ({ children }) => {
         }
 
         try {
-            const res = await axios.post(`/nota`, nota, config);
+            const res = await axios.post(`${url}/nota`, nota, config);
             dispatch({
                 type: 'ADD_NOTA',
                 payload: res.data.data
@@ -139,7 +141,7 @@ export const NotasProvider = ({ children }) => {
             for (var value of nota.values()) {
                 console.log(value);
             }
-            const res = await axios.put(`/nota/${id}`, nota, config)
+            const res = await axios.put(`${url}/nota/${id}`, nota, config)
 
             dispatch({
                 type: 'UPDATE_NOTA',
@@ -160,7 +162,7 @@ export const NotasProvider = ({ children }) => {
         try {
 
 
-            const res = await axios.get(`/nota/last`)
+            const res = await axios.get(`${url}/nota/last`)
 
             dispatch({
                 type: 'GET_RECIENTES',
