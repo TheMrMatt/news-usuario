@@ -19,7 +19,7 @@ const NotaPage = () => {
 
 
     useEffect(() => {
-        populateNota(camp.id, notas)
+        populateNota(camp.id, user)
     }, []);
 
     useEffect(() => {

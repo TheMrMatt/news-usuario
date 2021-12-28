@@ -31,18 +31,24 @@ export const NotasContext = createContext(initialState)
 export const NotasProvider = ({ children }) => {
     const [state, dispatch] = useReducer(NotasReducer, initialState)
 
-    async function populateNota(id, notas) {
+    async function populateNota(id, user) {
 
         try {
-            const res = await axios.get(`https://news-server-context.herokuapp.com/nota/${id}`);
-
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                user: user,
+                credentials: 'include'
+            }
+            const res = await axios.get(`/nota/${id}`, config);
+            console.log(res)
 
             dispatch({
                 type: 'GET_NOTA',
                 payload: res.data.data
             });
         } catch (err) {
-            console.log(err.response.data.error)
             toast.error(err.response.data.error, { position: toast.POSITION.TOP_RIGHT, autoClose: false })
             dispatch({
                 type: 'NOTA_ERROR',
@@ -59,7 +65,7 @@ export const NotasProvider = ({ children }) => {
         //usar esta accion para llamar a todas las notas, filtrar desde el front 
 
         try {
-            const res = await axios.get('https://news-server-context.herokuapp.com/nota/all')
+            const res = await axios.get('/nota/all')
 
             dispatch({
                 type: 'GET_NOTAS',
@@ -79,7 +85,7 @@ export const NotasProvider = ({ children }) => {
 
 
         try {
-            await axios.delete(`https://news-server-context.herokuapp.com/nota/${id}`)
+            await axios.delete(`/nota/${id}`)
             dispatch({
                 type: 'DELETE_NOTA',
                 payload: id
@@ -104,7 +110,7 @@ export const NotasProvider = ({ children }) => {
         }
 
         try {
-            const res = await axios.post(`https://news-server-context.herokuapp.com/nota`, nota, config);
+            const res = await axios.post(`/nota`, nota, config);
             dispatch({
                 type: 'ADD_NOTA',
                 payload: res.data.data
@@ -133,7 +139,7 @@ export const NotasProvider = ({ children }) => {
             for (var value of nota.values()) {
                 console.log(value);
             }
-            const res = await axios.put(`https://news-server-context.herokuapp.com/nota/${id}`, nota, config)
+            const res = await axios.put(`/nota/${id}`, nota, config)
 
             dispatch({
                 type: 'UPDATE_NOTA',
@@ -154,7 +160,7 @@ export const NotasProvider = ({ children }) => {
         try {
 
 
-            const res = await axios.get(`https://news-server-context.herokuapp.com/nota/last`)
+            const res = await axios.get(`/nota/last`)
 
             dispatch({
                 type: 'GET_RECIENTES',

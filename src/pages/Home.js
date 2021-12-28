@@ -26,7 +26,7 @@ const Home = () => {
     pol2 = pol2.slice(-3);
     let tec2 = notas.filter(not => not.categoria.toUpperCase() === 'TECNOLOGIA')
     tec2 = tec2.slice(-3);
-    console.log('notas', notas);
+    console.log('notas', loadingP, loading);
 
     if (loadingP === true) {
 
