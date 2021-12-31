@@ -52,18 +52,18 @@ function App() {
             </ProtectedRoute>
             } />
 
-            <Route path="/deportes" element={<SectionPage cat='Deportes' subCats={['FUTBOL', 'RUGBY', 'TENIS', 'MASDEPORTES']} />} exact />
-            <Route path="/deportes/rugby" element={<SubSeccionPage subCat='Rugby' />} exact />
-            <Route path="/deportes/futbol" element={<SubSeccionPage subCat='Futbol' />} exact />
-            <Route path="/deportes/tenis" element={<SubSeccionPage subCat='Tenis' />} exact />
-            <Route path="/deportes/masdeportes" element={<SubSeccionPage subCat='MasDeportes' />} exact />
-            <Route path="/espectaculos" element={<SectionPage cat='Espectaculos' subCats={['CINE', 'TEATRO', 'MASESPECTACULOS']} />} exact />
-            <Route path="/espectaculos/cine" element={<SubSeccionPage subCat='Cine' />} exact />
-            <Route path="/espectaculos/teatro" element={<SubSeccionPage subCat='Teatro' />} exact />
+            <Route path="/deportes" element={<ProtectedRoute> <SectionPage cat='Deportes' subCats={['FUTBOL', 'RUGBY', 'TENIS', 'MASDEPORTES']} /></ProtectedRoute>} exact />
+            <Route path="/deportes/rugby" element={<ProtectedRoute><SubSeccionPage subCat='Rugby' /></ProtectedRoute>} exact />
+            <Route path="/deportes/futbol" element={<ProtectedRoute><SubSeccionPage subCat='Futbol' /></ProtectedRoute>} exact />
+            <Route path="/deportes/tenis" element={<ProtectedRoute><SubSeccionPage subCat='Tenis' /></ProtectedRoute>} exact />
+            <Route path="/deportes/masdeportes" element={<ProtectedRoute><SubSeccionPage subCat='MasDeportes' /></ProtectedRoute>} exact />
+            <Route path="/espectaculos" element={<ProtectedRoute><SectionPage cat='Espectaculos' subCats={['CINE', 'TEATRO', 'MASESPECTACULOS']} /></ProtectedRoute>} exact />
+            <Route path="/espectaculos/cine" element={<ProtectedRoute><SubSeccionPage subCat='Cine' /></ProtectedRoute>} exact />
+            <Route path="/espectaculos/teatro" element={<ProtectedRoute><SubSeccionPage subCat='Teatro' /></ProtectedRoute>} exact />
             <Route path="/espectaculos/masespectaculos" element={<SubSeccionPage subCat='MasEspectaculos' />} exact />
-            <Route path="/tecnologia" element={<SectionPage cat='Tecnologia' subCats={[]} content='Tecnologia' />} exact />
-            <Route path="/policiales" element={<SectionPage cat='Policiales' subCats={[]} content='Policiales' />} exact />
-            <Route path="/tag/:id" element={<TagPage />} exact />
+            <Route path="/tecnologia" element={<ProtectedRoute><SectionPage cat='Tecnologia' subCats={[]} content='Tecnologia' /></ProtectedRoute>} exact />
+            <Route path="/policiales" element={<ProtectedRoute><SectionPage cat='Policiales' subCats={[]} content='Policiales' /></ProtectedRoute>} exact />
+            <Route path="/tag/:id" element={<ProtectedRoute><TagPage /></ProtectedRoute>} exact />
             <Route path='*' element={<ErrorScreen />} />
 
           </Routes>

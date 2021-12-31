@@ -31,7 +31,12 @@ export const PortadaProvider = ({ children }) => {
                 payload: res.data.data
             });
         } catch (err) {
-
+            dispatch({
+                type: 'PORTADA_ERROR',
+                payload: err
+            });
+            console.log(err)
+            toast.error(err, { position: toast.POSITION.TOP_RIGHT, autoClose: false })
         }
     }
 
@@ -44,6 +49,12 @@ export const PortadaProvider = ({ children }) => {
                 payload: res.data.data
             });
         } catch (err) {
+            console.log(err)
+            toast.error(err, { position: toast.POSITION.TOP_RIGHT, autoClose: false })
+            dispatch({
+                type: 'PORTADA_ERROR',
+                payload: err
+            });
 
         }
     }
@@ -86,12 +97,13 @@ export const PortadaProvider = ({ children }) => {
             });
             toast.success('Portada editada con exito', { position: toast.POSITION.TOP_RIGHT, autoClose: false })
         } catch (err) {
+            console.log(err)
+            toast.error(err, { position: toast.POSITION.TOP_RIGHT, autoClose: false })
             dispatch({
                 type: 'PORTADA_ERROR',
                 payload: err
             });
-            console.log(err)
-            toast.error(err, { position: toast.POSITION.TOP_RIGHT, autoClose: false })
+
         }
     }
 
