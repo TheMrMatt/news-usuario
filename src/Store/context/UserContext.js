@@ -22,7 +22,7 @@ const initialState = {
 
 }
 
-const url = 'https://news-server-context.herokuapp.com';
+const url = '';
 
 export const UserContext = createContext(initialState)
 
@@ -101,15 +101,20 @@ export const UserProvider = ({ children }) => {
     }
 
     async function login(user) {
-
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: user
+        }
         try {
-            const res = await axios.post(`${url}/login`, user)
+            const res = await axios.post(`${url}/login`, user, config)
             console.log(res)
+            localStorage.setItem('data', JSON.stringify(res.data))
             dispatch({
                 type: 'LOGIN',
                 payload: res.data.user
             });
-            localStorage.setItem('user', JSON.stringify(res.data.user))
         } catch (err) {
             console.log('algo salio mal login')
         }
@@ -147,10 +152,10 @@ export const UserProvider = ({ children }) => {
     function isLoggedIn(userp) {
 
         try {
-            console.log('user in isLoggedIn', userp)
+
             dispatch({
                 type: 'LOGIN',
-                payload: userp
+                payload: userp.user
             });
         } catch (err) {
             console.log('error', err)

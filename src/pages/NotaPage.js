@@ -16,10 +16,11 @@ const NotaPage = () => {
     const { user, getUser, userSearch, loadingUser, isLoggedIn } = useContext(UserContext)
     const { nota, populateNota, notas, loading } = useContext(NotasContext)
     const camp = useParams();
-
+    let data = JSON.parse(localStorage.getItem('data'));
+    const token = data.accessToken;
 
     useEffect(() => {
-        populateNota(camp.id, user)
+        populateNota(camp.id, token)
     }, []);
 
     useEffect(() => {

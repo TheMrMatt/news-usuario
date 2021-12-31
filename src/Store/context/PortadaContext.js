@@ -15,7 +15,7 @@ const initialState = {
 
 }
 
-const url = 'https://news-server-context.herokuapp.com';
+const url = '';
 
 export const PortadaContext = createContext(initialState)
 

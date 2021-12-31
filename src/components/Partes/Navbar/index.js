@@ -23,10 +23,10 @@ const Navbar = () => {
     let history = useNavigate();
     const handleClick = () => { console.log(click); setClick(!click); }
     useEffect(() => {
-        const loggedInUser = localStorage.getItem("user");
+        const loggedInUser = localStorage.getItem("data");
         if (loggedInUser) {
             const foundUser = JSON.parse(loggedInUser);
-            console.log('user ', foundUser)
+
             isLoggedIn(foundUser)
         }
     }, []);

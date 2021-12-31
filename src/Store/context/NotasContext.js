@@ -26,25 +26,26 @@ const initialState = {
 
 }
 
-const url = 'https://news-server-context.herokuapp.com';
-//va a fallar los mas recientes seguramente, no hay acciones ni funciones que lo llenen
+const url = '';
+//va a fallar los mas recientes seguramente, no hay acciones ni funciones que lo llenen https://news-server-context.herokuapp.com
 export const NotasContext = createContext(initialState)
 
 export const NotasProvider = ({ children }) => {
     const [state, dispatch] = useReducer(NotasReducer, initialState)
 
-    async function populateNota(id, user) {
+    async function populateNota(id, token) {
 
         try {
+
+
             const config = {
                 headers: {
-                    'Content-Type': 'application/json'
-                },
-                user: user,
-                credentials: 'include'
+                    'Content-Type': 'application/json',
+                    'authorization': `Bearer ${token}`
+                }
             }
             const res = await axios.get(`${url}/nota/${id}`, config);
-            console.log(res)
+
 
             dispatch({
                 type: 'GET_NOTA',
@@ -83,81 +84,6 @@ export const NotasProvider = ({ children }) => {
 
     }
 
-    async function deleteNota(id) {
-
-
-        try {
-            await axios.delete(`${url}/nota/${id}`)
-            dispatch({
-                type: 'DELETE_NOTA',
-                payload: id
-            });
-            toast.success('Nota eliminada', { position: toast.POSITION.TOP_RIGHT, autoClose: false })
-        } catch (err) {
-            dispatch({
-                type: 'NOTA_ERROR',
-                payload: err.response.data.error
-            });
-            toast.error(err.response.data.error, { position: toast.POSITION.TOP_RIGHT, autoClose: false })
-        }
-
-    }
-
-    async function addNota(nota, redirect) {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: nota,
-        }
-
-        try {
-            const res = await axios.post(`${url}/nota`, nota, config);
-            dispatch({
-                type: 'ADD_NOTA',
-                payload: res.data.data
-            });
-            toast.success('Nota Publicada', { position: toast.POSITION.TOP_RIGHT, autoClose: false })
-            redirect()
-        } catch (err) {
-            dispatch({
-                type: 'NOTA_ERROR',
-                payload: err.response.data.error
-            });
-            toast.error(err.response.data.error, { position: toast.POSITION.TOP_RIGHT, autoClose: false })
-        }
-    }
-
-    async function updateNota(id, nota, redirect) {
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: nota,
-        }
-
-        try {
-
-            for (var value of nota.values()) {
-                console.log(value);
-            }
-            const res = await axios.put(`${url}/nota/${id}`, nota, config)
-
-            dispatch({
-                type: 'UPDATE_NOTA',
-                payload: res.data.data
-            });
-            toast.success('La nota fue editada con exito', { position: toast.POSITION.TOP_RIGHT, autoClose: false })
-            redirect()
-        } catch (err) {
-            dispatch({
-                type: 'NOTA_ERROR',
-                payload: err.response.data.error
-            });
-            toast.error(err.response.data.error, { position: toast.POSITION.TOP_RIGHT, autoClose: false })
-        }
-    }
-
     async function MasRecientesNotas() {
         try {
 
@@ -194,10 +120,7 @@ export const NotasProvider = ({ children }) => {
             notasTags: state.notasTags,
             populateNota,
             populateNotas,
-            addNota,
-            deleteNota,
             startLoading,
-            updateNota,
             MasRecientesNotas
         }}>
             {children}
