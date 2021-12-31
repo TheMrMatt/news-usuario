@@ -26,7 +26,7 @@ const initialState = {
 
 }
 
-const url = '';
+const url = 'https://news-server-context.herokuapp.com/';
 //va a fallar los mas recientes seguramente, no hay acciones ni funciones que lo llenen https://news-server-context.herokuapp.com
 export const NotasContext = createContext(initialState)
 
