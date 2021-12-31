@@ -76,9 +76,9 @@ color: #121317;
 export const Header = styled.div`
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: row;
-    
+
     margin-bottom: 25px;
 
     @media screen and (min-width: 320px) {
@@ -93,15 +93,20 @@ export const Header = styled.div`
 
 
     @media screen and (min-width: 993px) {
-        width: 600px;
+        width: 550px;
     }
 
     @media screen and (min-width: 1200px) {
-        width: 600px;
+        width: 550px;
 
     }
     
 
+`
+
+export const Div = styled.div`
+    width: 50px;
+    
 `
 
 export const Button = styled.button`

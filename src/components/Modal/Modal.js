@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import ReactDom from 'react-dom'
-import { Overlay, ModalContainer, Button, Header, Logo } from './Elements'
+import { Overlay, ModalContainer, Button, Header, Logo, Div } from './Elements'
 
 
 const Modal = ({ open, children, onClose }) => {
@@ -41,6 +41,7 @@ const Modal = ({ open, children, onClose }) => {
 
                         >
                             <Header>
+                                <Div />
                                 <Logo>Contexto</Logo>
                                 <Button onClick={onClose}>X</Button>
                             </Header>

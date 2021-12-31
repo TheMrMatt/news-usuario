@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     width: 100%;
+    
 `
 
 export const Wrap = styled.div`
@@ -184,7 +185,7 @@ export const Reg = styled.div`
     text-align: center;
     letter-spacing: 0.1em;
     cursor: pointer;
-
+    padding-bottom: 12px;
 
     color: #E80A40;
 `

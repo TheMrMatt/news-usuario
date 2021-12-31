@@ -96,6 +96,7 @@ export const InputsWrapper = styled.div`
         flex-direction: row;    
         justify-content: space-between;
         margin: 30px 0px 30px 0px;
+        padding: 0px 0px 0px 0px;
     }
 
 
